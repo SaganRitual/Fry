@@ -15,35 +15,40 @@ class ArenaScene: SKScene, SKSceneDelegate, ObservableObject {
 
     // The radius is our scale factor. The 95% is to shrink it enough to
     // keep the circles visible
-    lazy var arenaScaleFactor = 0.95 * self.size.radius
+    lazy var arenaDiameter = 0.95 * self.size.width
+    lazy var arenaRadius = arenaDiameter / 2.0
 
-    var wormClub: WormClub!
+    var elves = [Elf]()
 
     override func didMove(to view: SKView) {
-        let zilla = SpritePool.ringsPool.makeSprite()
-        zilla.size = self.size
-        zilla.color = .yellow
-        zilla.anchorPoint = .anchorAtCenter
-        self.addChild(zilla)
+        let zilla = Elf(parent: self, color: .cyan)
 
-        zilla.setScale(0.5)
+//        let zilla = SpritePool.ringsPool.makeSprite()
+//        zilla.size = self.size
+//        zilla.color = .cyan
+//        zilla.anchorPoint = .anchorAtCenter
+//        self.addChild(zilla)
 
-        print("zilla \(zilla.size), \(zilla.position)")
+//        let e0 = Elf(parent: zilla, penRingRadius: 0.75, color: .magenta)
+//        let e1 = Elf(parent: e0, penRingRadius: 0.71, color: .green)
 
-        let p0 = makePenRing(parent: zilla)
-        let p1 = makePenRing(parent: p0)
-        let p2 = makePenRing(parent: p1)
-        let p3 = makePenRing(parent: p2)
+        elves.append(contentsOf: [zilla])
 
-        for p in [p0, p1, p2, p3] {
-            let halfPulse0 = SKAction.move(by: CGVector(dx: p.radius * 2, dy: 0), duration: 2)
-            halfPulse0.timingMode = .easeInEaseOut
-            let pulse0Forever = SKAction.repeatForever(SKAction.sequence([halfPulse0, halfPulse0.reversed()]))
-            let waitASecond = SKAction.wait(forDuration: 1)
-            p.run(SKAction.sequence([waitASecond, pulse0Forever]))
+//        for p in [e0, e1] {
+//            let halfPulse0 = SKAction.move(by: CGVector(dx: p.radius * 2, dy: 0), duration: 2)
+//            halfPulse0.timingMode = .easeInEaseOut
+//            let pulse0Forever = SKAction.repeatForever(SKAction.sequence([halfPulse0, halfPulse0.reversed()]))
+//            let waitASecond = SKAction.wait(forDuration: 1)
+//            p.run(SKAction.sequence([waitASecond, pulse0Forever]))
+//        }
+    }
+
+    override func update(_ currentTime: TimeInterval) {
+        var rotation = 0.1 * Double.tau / 60.0
+
+        for elf in elves {
+            rotation = elf.rotate(against: rotation)
         }
-
-        zilla.setScale(1)
     }
 
     @discardableResult
@@ -67,14 +72,10 @@ class ArenaScene: SKScene, SKSceneDelegate, ObservableObject {
         default: fatalError()
         }
 
-        print("pre \(penRing.radius)")
-
         penRing.setScale(0.5)
 
         let omg = (-parentRadius - penRing.radius) / 2.0
         penRing.position = CGPoint(x:omg, y: 0)
-
-        print("child \(penRing.size), \(penRing.position), \(parentRadius), \(penRing.radius)")
 
         return penRing
     }

@@ -39,6 +39,8 @@
 		D4DB6C6D2749CCAA008F9D4E /* SpinnyRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DB6C6B2749CCAA008F9D4E /* SpinnyRing.swift */; };
 		D4DB6C6F2749EC57008F9D4E /* Worm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DB6C6E2749EC57008F9D4E /* Worm.swift */; };
 		D4DB6C702749EC57008F9D4E /* Worm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DB6C6E2749EC57008F9D4E /* Worm.swift */; };
+		D4DB6CBF274A916F008F9D4E /* Elf.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DB6CBE274A916F008F9D4E /* Elf.swift */; };
+		D4DB6CC0274A916F008F9D4E /* Elf.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DB6CBE274A916F008F9D4E /* Elf.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +63,7 @@
 		D4DB6C682749AC67008F9D4E /* Trundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trundle.swift; sourceTree = "<group>"; };
 		D4DB6C6B2749CCAA008F9D4E /* SpinnyRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnyRing.swift; sourceTree = "<group>"; };
 		D4DB6C6E2749EC57008F9D4E /* Worm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Worm.swift; sourceTree = "<group>"; };
+		D4DB6CBE274A916F008F9D4E /* Elf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Elf.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,9 +96,10 @@
 		D4DB6C2327498B71008F9D4E /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				D4DB6C4B2749A9C3008F9D4E /* AppSettingsView.swift */,
 				D4DB6C4227498C17008F9D4E /* ArenaScene.swift */,
 				D4DB6C2527498B71008F9D4E /* ContentView.swift */,
-				D4DB6C4B2749A9C3008F9D4E /* AppSettingsView.swift */,
+				D4DB6CBE274A916F008F9D4E /* Elf.swift */,
 				D4DB6C2427498B71008F9D4E /* FryApp.swift */,
 				D4DB6C6B2749CCAA008F9D4E /* SpinnyRing.swift */,
 				D4DB6C4527498C5C008F9D4E /* SpritePool.swift */,
@@ -255,6 +259,7 @@
 				D4DB6C692749AC67008F9D4E /* Trundle.swift in Sources */,
 				D4DB6C622749ABE1008F9D4E /* Extensions.swift in Sources */,
 				D4DB6C3427498B72008F9D4E /* FryApp.swift in Sources */,
+				D4DB6CBF274A916F008F9D4E /* Elf.swift in Sources */,
 				D4DB6C512749AA1A008F9D4E /* ToggleView.swift in Sources */,
 				D4DB6C4327498C17008F9D4E /* ArenaScene.swift in Sources */,
 				D4DB6C642749ABE1008F9D4E /* Overload2D.swift in Sources */,
@@ -277,6 +282,7 @@
 				D4DB6C6A2749AC67008F9D4E /* Trundle.swift in Sources */,
 				D4DB6C632749ABE1008F9D4E /* Extensions.swift in Sources */,
 				D4DB6C3527498B72008F9D4E /* FryApp.swift in Sources */,
+				D4DB6CC0274A916F008F9D4E /* Elf.swift in Sources */,
 				D4DB6C522749AA1A008F9D4E /* ToggleView.swift in Sources */,
 				D4DB6C4427498C17008F9D4E /* ArenaScene.swift in Sources */,
 				D4DB6C652749ABE1008F9D4E /* Overload2D.swift in Sources */,

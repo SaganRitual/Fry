@@ -13,7 +13,7 @@ extension CGSize {
 extension SKSpriteNode {
     var radius: Double {
         get { size.width / 2.0 }
-        set { size.width = newValue * 2.0 }
+        set { size = CGSize(square: newValue * 2.0) }
     }
 }
 
