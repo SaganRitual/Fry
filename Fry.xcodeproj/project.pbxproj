@@ -11,17 +11,53 @@
 		D4DB6C3527498B72008F9D4E /* FryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DB6C2427498B71008F9D4E /* FryApp.swift */; };
 		D4DB6C3627498B72008F9D4E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DB6C2527498B71008F9D4E /* ContentView.swift */; };
 		D4DB6C3727498B72008F9D4E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DB6C2527498B71008F9D4E /* ContentView.swift */; };
-		D4DB6C3827498B72008F9D4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4DB6C2627498B72008F9D4E /* Assets.xcassets */; };
-		D4DB6C3927498B72008F9D4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4DB6C2627498B72008F9D4E /* Assets.xcassets */; };
+		D4DB6C4327498C17008F9D4E /* ArenaScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DB6C4227498C17008F9D4E /* ArenaScene.swift */; };
+		D4DB6C4427498C17008F9D4E /* ArenaScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DB6C4227498C17008F9D4E /* ArenaScene.swift */; };
+		D4DB6C4627498C5C008F9D4E /* SpritePool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DB6C4527498C5C008F9D4E /* SpritePool.swift */; };
+		D4DB6C4727498C5C008F9D4E /* SpritePool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DB6C4527498C5C008F9D4E /* SpritePool.swift */; };
+		D4DB6C4927498CCA008F9D4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4DB6C4827498CCA008F9D4E /* Assets.xcassets */; };
+		D4DB6C4A27498CCA008F9D4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4DB6C4827498CCA008F9D4E /* Assets.xcassets */; };
+		D4DB6C4C2749A9C3008F9D4E /* AppSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DB6C4B2749A9C3008F9D4E /* AppSettingsView.swift */; };
+		D4DB6C4D2749A9C3008F9D4E /* AppSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DB6C4B2749A9C3008F9D4E /* AppSettingsView.swift */; };
+		D4DB6C512749AA1A008F9D4E /* ToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DB6C4F2749AA1A008F9D4E /* ToggleView.swift */; };
+		D4DB6C522749AA1A008F9D4E /* ToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DB6C4F2749AA1A008F9D4E /* ToggleView.swift */; };
+		D4DB6C532749AA1A008F9D4E /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DB6C502749AA1A008F9D4E /* SliderView.swift */; };
+		D4DB6C542749AA1A008F9D4E /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DB6C502749AA1A008F9D4E /* SliderView.swift */; };
+		D4DB6C5E2749ABE1008F9D4E /* GridPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DB6C592749ABE1008F9D4E /* GridPoint.swift */; };
+		D4DB6C5F2749ABE1008F9D4E /* GridPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DB6C592749ABE1008F9D4E /* GridPoint.swift */; };
+		D4DB6C602749ABE1008F9D4E /* Deque.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DB6C5A2749ABE1008F9D4E /* Deque.swift */; };
+		D4DB6C612749ABE1008F9D4E /* Deque.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DB6C5A2749ABE1008F9D4E /* Deque.swift */; };
+		D4DB6C622749ABE1008F9D4E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DB6C5B2749ABE1008F9D4E /* Extensions.swift */; };
+		D4DB6C632749ABE1008F9D4E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DB6C5B2749ABE1008F9D4E /* Extensions.swift */; };
+		D4DB6C642749ABE1008F9D4E /* Overload2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DB6C5C2749ABE1008F9D4E /* Overload2D.swift */; };
+		D4DB6C652749ABE1008F9D4E /* Overload2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DB6C5C2749ABE1008F9D4E /* Overload2D.swift */; };
+		D4DB6C662749ABE1008F9D4E /* TriangleFormulae.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DB6C5D2749ABE1008F9D4E /* TriangleFormulae.swift */; };
+		D4DB6C672749ABE1008F9D4E /* TriangleFormulae.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DB6C5D2749ABE1008F9D4E /* TriangleFormulae.swift */; };
+		D4DB6C692749AC67008F9D4E /* Trundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DB6C682749AC67008F9D4E /* Trundle.swift */; };
+		D4DB6C6A2749AC67008F9D4E /* Trundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DB6C682749AC67008F9D4E /* Trundle.swift */; };
+		D4DB6C6C2749CCAA008F9D4E /* SpinnyRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DB6C6B2749CCAA008F9D4E /* SpinnyRing.swift */; };
+		D4DB6C6D2749CCAA008F9D4E /* SpinnyRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DB6C6B2749CCAA008F9D4E /* SpinnyRing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D4DB6C2427498B71008F9D4E /* FryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FryApp.swift; sourceTree = "<group>"; };
 		D4DB6C2527498B71008F9D4E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		D4DB6C2627498B72008F9D4E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D4DB6C2B27498B72008F9D4E /* Fry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4DB6C3127498B72008F9D4E /* Fry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4DB6C3327498B72008F9D4E /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		D4DB6C4227498C17008F9D4E /* ArenaScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArenaScene.swift; sourceTree = "<group>"; };
+		D4DB6C4527498C5C008F9D4E /* SpritePool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpritePool.swift; sourceTree = "<group>"; };
+		D4DB6C4827498CCA008F9D4E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D4DB6C4B2749A9C3008F9D4E /* AppSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsView.swift; sourceTree = "<group>"; };
+		D4DB6C4F2749AA1A008F9D4E /* ToggleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleView.swift; sourceTree = "<group>"; };
+		D4DB6C502749AA1A008F9D4E /* SliderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
+		D4DB6C592749ABE1008F9D4E /* GridPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridPoint.swift; sourceTree = "<group>"; };
+		D4DB6C5A2749ABE1008F9D4E /* Deque.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deque.swift; sourceTree = "<group>"; };
+		D4DB6C5B2749ABE1008F9D4E /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		D4DB6C5C2749ABE1008F9D4E /* Overload2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Overload2D.swift; sourceTree = "<group>"; };
+		D4DB6C5D2749ABE1008F9D4E /* TriangleFormulae.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriangleFormulae.swift; sourceTree = "<group>"; };
+		D4DB6C682749AC67008F9D4E /* Trundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trundle.swift; sourceTree = "<group>"; };
+		D4DB6C6B2749CCAA008F9D4E /* SpinnyRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnyRing.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,9 +90,16 @@
 		D4DB6C2327498B71008F9D4E /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				D4DB6C2427498B71008F9D4E /* FryApp.swift */,
+				D4DB6C4227498C17008F9D4E /* ArenaScene.swift */,
 				D4DB6C2527498B71008F9D4E /* ContentView.swift */,
-				D4DB6C2627498B72008F9D4E /* Assets.xcassets */,
+				D4DB6C4B2749A9C3008F9D4E /* AppSettingsView.swift */,
+				D4DB6C2427498B71008F9D4E /* FryApp.swift */,
+				D4DB6C6B2749CCAA008F9D4E /* SpinnyRing.swift */,
+				D4DB6C4527498C5C008F9D4E /* SpritePool.swift */,
+				D4DB6C682749AC67008F9D4E /* Trundle.swift */,
+				D4DB6C582749ABE1008F9D4E /* Primitives */,
+				D4DB6C4E2749AA1A008F9D4E /* ViewPrimitives */,
+				D4DB6C4827498CCA008F9D4E /* Assets.xcassets */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -76,6 +119,27 @@
 				D4DB6C3327498B72008F9D4E /* macOS.entitlements */,
 			);
 			path = macOS;
+			sourceTree = "<group>";
+		};
+		D4DB6C4E2749AA1A008F9D4E /* ViewPrimitives */ = {
+			isa = PBXGroup;
+			children = (
+				D4DB6C4F2749AA1A008F9D4E /* ToggleView.swift */,
+				D4DB6C502749AA1A008F9D4E /* SliderView.swift */,
+			);
+			path = ViewPrimitives;
+			sourceTree = "<group>";
+		};
+		D4DB6C582749ABE1008F9D4E /* Primitives */ = {
+			isa = PBXGroup;
+			children = (
+				D4DB6C592749ABE1008F9D4E /* GridPoint.swift */,
+				D4DB6C5A2749ABE1008F9D4E /* Deque.swift */,
+				D4DB6C5B2749ABE1008F9D4E /* Extensions.swift */,
+				D4DB6C5C2749ABE1008F9D4E /* Overload2D.swift */,
+				D4DB6C5D2749ABE1008F9D4E /* TriangleFormulae.swift */,
+			);
+			path = Primitives;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,7 +221,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4DB6C3827498B72008F9D4E /* Assets.xcassets in Resources */,
+				D4DB6C4927498CCA008F9D4E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,7 +229,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4DB6C3927498B72008F9D4E /* Assets.xcassets in Resources */,
+				D4DB6C4A27498CCA008F9D4E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,8 +240,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4DB6C4627498C5C008F9D4E /* SpritePool.swift in Sources */,
 				D4DB6C3627498B72008F9D4E /* ContentView.swift in Sources */,
+				D4DB6C6C2749CCAA008F9D4E /* SpinnyRing.swift in Sources */,
+				D4DB6C662749ABE1008F9D4E /* TriangleFormulae.swift in Sources */,
+				D4DB6C602749ABE1008F9D4E /* Deque.swift in Sources */,
+				D4DB6C5E2749ABE1008F9D4E /* GridPoint.swift in Sources */,
+				D4DB6C4C2749A9C3008F9D4E /* AppSettingsView.swift in Sources */,
+				D4DB6C692749AC67008F9D4E /* Trundle.swift in Sources */,
+				D4DB6C622749ABE1008F9D4E /* Extensions.swift in Sources */,
 				D4DB6C3427498B72008F9D4E /* FryApp.swift in Sources */,
+				D4DB6C512749AA1A008F9D4E /* ToggleView.swift in Sources */,
+				D4DB6C4327498C17008F9D4E /* ArenaScene.swift in Sources */,
+				D4DB6C642749ABE1008F9D4E /* Overload2D.swift in Sources */,
+				D4DB6C532749AA1A008F9D4E /* SliderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,8 +261,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4DB6C4727498C5C008F9D4E /* SpritePool.swift in Sources */,
 				D4DB6C3727498B72008F9D4E /* ContentView.swift in Sources */,
+				D4DB6C6D2749CCAA008F9D4E /* SpinnyRing.swift in Sources */,
+				D4DB6C672749ABE1008F9D4E /* TriangleFormulae.swift in Sources */,
+				D4DB6C612749ABE1008F9D4E /* Deque.swift in Sources */,
+				D4DB6C5F2749ABE1008F9D4E /* GridPoint.swift in Sources */,
+				D4DB6C4D2749A9C3008F9D4E /* AppSettingsView.swift in Sources */,
+				D4DB6C6A2749AC67008F9D4E /* Trundle.swift in Sources */,
+				D4DB6C632749ABE1008F9D4E /* Extensions.swift in Sources */,
 				D4DB6C3527498B72008F9D4E /* FryApp.swift in Sources */,
+				D4DB6C522749AA1A008F9D4E /* ToggleView.swift in Sources */,
+				D4DB6C4427498C17008F9D4E /* ArenaScene.swift in Sources */,
+				D4DB6C652749ABE1008F9D4E /* Overload2D.swift in Sources */,
+				D4DB6C542749AA1A008F9D4E /* SliderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
