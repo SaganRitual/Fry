@@ -8,7 +8,8 @@ struct ContentView: View {
 
     var body: some View {
         HStack {
-            AppSettingsView(penRingRadius: 0.63, showRings: true)
+            AppSettingsView()
+                .frame(width: 300)
 
             SpriteView(scene: arena).scaledToFit()
         }.environmentObject(arena)

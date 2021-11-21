@@ -50,16 +50,18 @@ class Elf {
         parent.sprite.addChild(sprite)
     }
 
-    func rotate(against parentRotation: Double) -> Double {
+    func rotate(against parentRotation: Double, applyToSprite: Bool = true) -> Double {
         let myRotation = parentRotation / scale
-        sprite.zRotation += myRotation
 
-        print(
-            "scale \(scale.asString(decimals: 4))"
-            + " / parent rotation \(parentRotation.asString(decimals: 4))"
-            + " -> myRotation \(myRotation.asString(decimals: 4))"
-            + " my sprite rotation \(Double(sprite.zRotation).asString(decimals: 4))"
-        )
+        if applyToSprite { sprite.zRotation += myRotation }
+
+//        print(
+//            "scale \(scale.asString(decimals: 4))"
+//            + " / parent rotation \(parentRotation.asString(decimals: 4))"
+//            + " -> myRotation \(myRotation.asString(decimals: 4))"
+//            + " my sprite rotation \(Double(sprite.zRotation).asString(decimals: 4))"
+//        )
+
         return -myRotation
     }
 }

@@ -21,63 +21,35 @@ class ArenaScene: SKScene, SKSceneDelegate, ObservableObject {
     var elves = [Elf]()
 
     override func didMove(to view: SKView) {
-        let zilla = Elf(parent: self, color: .cyan)
+        makeRings(10)
+    }
 
-//        let zilla = SpritePool.ringsPool.makeSprite()
-//        zilla.size = self.size
-//        zilla.color = .cyan
-//        zilla.anchorPoint = .anchorAtCenter
-//        self.addChild(zilla)
+    func makeRings(_ cRings: Int) {
+        let hueDelta = 1.0 / Double(cRings)
 
-        let e0 = Elf(parent: zilla, penRingRadius: 0.75, color: .magenta)
-//        let e1 = Elf(parent: e0, penRingRadius: 0.71, color: .green)
+        for ringIx in 0..<cRings {
+            let hue = (0.5 + Double(ringIx) * hueDelta).truncatingRemainder(dividingBy: 1)
 
-        elves.append(contentsOf: [zilla, e0])
+            let color = SKColor(calibratedHue: hue, saturation: 0.5, brightness: 1, alpha: 1)
+            let penRingRadius = 0.95 - Double(ringIx) * 0.07
 
-//        for p in [e0, e1] {
-//            let halfPulse0 = SKAction.move(by: CGVector(dx: p.radius * 2, dy: 0), duration: 2)
-//            halfPulse0.timingMode = .easeInEaseOut
-//            let pulse0Forever = SKAction.repeatForever(SKAction.sequence([halfPulse0, halfPulse0.reversed()]))
-//            let waitASecond = SKAction.wait(forDuration: 1)
-//            p.run(SKAction.sequence([waitASecond, pulse0Forever]))
-//        }
+            let elf = (ringIx == 0) ?
+            Elf(parent: self, color: color) :
+            Elf(parent: elves.last!, penRingRadius: penRingRadius, color: color)
+
+            elves.append(elf)
+        }
     }
 
     override func update(_ currentTime: TimeInterval) {
-        var rotation = 0.1 * Double.tau / 60.0
+        var rotation = 0.5 * Double.tau / 60.0
 
-        for elf in elves {
-            rotation = elf.rotate(against: rotation)
+        var applyRotation = [Bool](repeating: true, count: elves.count)
+        applyRotation[0] = true
+
+        for (elf, apply) in zip(elves, applyRotation) {
+            rotation = elf.rotate(against: rotation, applyToSprite: apply)
         }
-    }
-
-    @discardableResult
-    func makePenRing(parent: SKNode) -> SKSpriteNode {
-        let penRing = SpritePool.ringsPool.makeSprite()
-
-        penRing.color = .green
-        penRing.anchorPoint = .anchorAtCenter
-        parent.addChild(penRing)
-
-        let parentRadius: Double
-        switch parent {
-        case let p as ArenaScene:
-            parentRadius = p.size.radius
-            penRing.size = p.size
-
-        case let p as SKSpriteNode:
-            parentRadius = p.size.radius
-            penRing.size = p.size * 2.0
-
-        default: fatalError()
-        }
-
-        penRing.setScale(0.5)
-
-        let omg = (-parentRadius - penRing.radius) / 2.0
-        penRing.position = CGPoint(x:omg, y: 0)
-
-        return penRing
     }
 
     func showRings(_ show: Bool) {

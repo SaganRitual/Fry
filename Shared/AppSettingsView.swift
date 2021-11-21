@@ -19,12 +19,10 @@ struct AppSettingsView: View {
                 decimals: 2, value: $penRingRadius
             )
             .modifier(SliderViewDefaults())
-            .help("Ratio of run rate to the speed of time in a vacuum")
+            .help("Pen ring radius as a fraction of parent ring's radius")
             .onAppear(perform: { self.setPenRingRadius(penRingRadius) })
             .onChange(of: penRingRadius) { self.setPenRingRadius($0) }
-        }
 
-        VStack(alignment: .leading) {
             Text("Show/hide").font(.title).padding([.top, .bottom], 15)
 
             HStack {
