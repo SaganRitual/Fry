@@ -41,6 +41,8 @@ extension ClosedRange {
 }
 
 extension CGPoint {
+    static let anchorAtCenter = CGPoint(x: 0.5, y: 0.5)
+
     enum CompactType { case xy, rθ }
 
     func getCompact(_ type: CompactType = CompactType.xy) -> String {

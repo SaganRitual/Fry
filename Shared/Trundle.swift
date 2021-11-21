@@ -8,7 +8,7 @@ class Trundle {
 
     let pis = NSNotification.Name("parentIsScaling")
 
-    var trundleScaleFactor: Double { penSR.sprite.radius }
+    var trundleScaleFactor: Double { 1 - spindleSR.sprite.radius }
     let sceneScaleFactor: CGSize
 
     init(
@@ -36,14 +36,18 @@ class Trundle {
         print("parent is scaling")
     }
 
-    func setPenRingRadius(_ radius: Double) {
-        let scaleRadius = SKAction.customAction(
-            withDuration: abs(radius - penSR.sprite.radius)
+    func setPenRingRadius(_ targetRadius: Double) {
+        print("sprr", abs(targetRadius - penSR.sprite.radius), targetRadius, penSR.sprite.radius)
+        let currentRadius = penSR.sprite.radius
+
+        let scaleToTargetRadius = SKAction.customAction(
+            withDuration: abs(targetRadius - penSR.sprite.radius)
         ) { [self] _, newRadius in
-            penSR.sprite.radius = newRadius * trundleScaleFactor
+            penSR.sprite.radius = currentRadius + newRadius * trundleScaleFactor
+            print("scaleRadius", penSR.sprite.radius, newRadius, trundleScaleFactor)
         }
 
-        penSR.sprite.run(scaleRadius, withKey: "animatePenRingRadius")
+        penSR.sprite.run(scaleToTargetRadius, withKey: "animatePenRingRadius")
     }
 
     func showRings(_ show: Bool) {

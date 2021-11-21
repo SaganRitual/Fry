@@ -17,20 +17,18 @@ class PenTool: SpinnyRingTool {
     var penRadius: Double
     let sprite: SKSpriteNode
 
-    init(_ penRadius: Double, _ ringRadius: Double, _ ringColor: SKColor) {
+    init(_ penRadius: Double, _ ringColor: SKColor) {
         self.penRadius = penRadius
 
-        let size = CGSize(square: ringRadius * 2)
-        self.sprite = makeRingSprite(size: size, color: ringColor)
+        self.sprite = SpinnyRing.makeRingSprite(color: ringColor)
     }
 }
 
 class SpindleTool: SpinnyRingTool {
     let sprite: SKSpriteNode
 
-    init(_ ringRadius: Double, _ ringColor: SKColor) {
-        let size = CGSize(square: ringRadius * 2)
-        self.sprite = makeRingSprite(size: size, color: ringColor)
+    init(_ ringColor: SKColor) {
+        self.sprite = SpinnyRing.makeRingSprite(color: ringColor)
     }
 }
 
@@ -47,16 +45,26 @@ class SpinnyRing {
 
     init(
         type: SpinnyRingType, parentSKNode: SKNode,
-        size: CGSize, color: SKColor, penRadius: Double? = nil
+        color: SKColor, penRadius: Double? = nil
     ) {
         self.type = type
-        self.sprite = makeRingSprite(size: size, color: color)
+        self.sprite = SpinnyRing.makeRingSprite(color: color)
 
         switch type {
-        case .pen:     tool = PenTool(penRadius!, size.radius, color)
-        case .spindle: tool = SpindleTool(size.radius, color)
+        case .pen:     tool = PenTool(penRadius!, color)
+        case .spindle: tool = SpindleTool(color)
         }
 
         parentSKNode.addChild(sprite)
+    }
+
+    static func makeRingSprite(color: SKColor) -> SKSpriteNode {
+        let sprite = SpritePool.bumpRingsPool.makeSprite()
+
+        sprite.size = .init(square: 1.0)
+        sprite.color = color
+        sprite.colorBlendFactor = 1
+
+        return sprite
     }
 }

@@ -37,6 +37,8 @@
 		D4DB6C6A2749AC67008F9D4E /* Trundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DB6C682749AC67008F9D4E /* Trundle.swift */; };
 		D4DB6C6C2749CCAA008F9D4E /* SpinnyRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DB6C6B2749CCAA008F9D4E /* SpinnyRing.swift */; };
 		D4DB6C6D2749CCAA008F9D4E /* SpinnyRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DB6C6B2749CCAA008F9D4E /* SpinnyRing.swift */; };
+		D4DB6C6F2749EC57008F9D4E /* Worm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DB6C6E2749EC57008F9D4E /* Worm.swift */; };
+		D4DB6C702749EC57008F9D4E /* Worm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DB6C6E2749EC57008F9D4E /* Worm.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +60,7 @@
 		D4DB6C5D2749ABE1008F9D4E /* TriangleFormulae.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriangleFormulae.swift; sourceTree = "<group>"; };
 		D4DB6C682749AC67008F9D4E /* Trundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trundle.swift; sourceTree = "<group>"; };
 		D4DB6C6B2749CCAA008F9D4E /* SpinnyRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnyRing.swift; sourceTree = "<group>"; };
+		D4DB6C6E2749EC57008F9D4E /* Worm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Worm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +100,7 @@
 				D4DB6C6B2749CCAA008F9D4E /* SpinnyRing.swift */,
 				D4DB6C4527498C5C008F9D4E /* SpritePool.swift */,
 				D4DB6C682749AC67008F9D4E /* Trundle.swift */,
+				D4DB6C6E2749EC57008F9D4E /* Worm.swift */,
 				D4DB6C582749ABE1008F9D4E /* Primitives */,
 				D4DB6C4E2749AA1A008F9D4E /* ViewPrimitives */,
 				D4DB6C4827498CCA008F9D4E /* Assets.xcassets */,
@@ -242,6 +246,7 @@
 			files = (
 				D4DB6C4627498C5C008F9D4E /* SpritePool.swift in Sources */,
 				D4DB6C3627498B72008F9D4E /* ContentView.swift in Sources */,
+				D4DB6C6F2749EC57008F9D4E /* Worm.swift in Sources */,
 				D4DB6C6C2749CCAA008F9D4E /* SpinnyRing.swift in Sources */,
 				D4DB6C662749ABE1008F9D4E /* TriangleFormulae.swift in Sources */,
 				D4DB6C602749ABE1008F9D4E /* Deque.swift in Sources */,
@@ -263,6 +268,7 @@
 			files = (
 				D4DB6C4727498C5C008F9D4E /* SpritePool.swift in Sources */,
 				D4DB6C3727498B72008F9D4E /* ContentView.swift in Sources */,
+				D4DB6C702749EC57008F9D4E /* Worm.swift in Sources */,
 				D4DB6C6D2749CCAA008F9D4E /* SpinnyRing.swift in Sources */,
 				D4DB6C672749ABE1008F9D4E /* TriangleFormulae.swift in Sources */,
 				D4DB6C612749ABE1008F9D4E /* Deque.swift in Sources */,

@@ -3,16 +3,6 @@
 import SpriteKit
 import SwiftUI
 
-func makeRingSprite(size: CGSize, color: SKColor) -> SKSpriteNode {
-    let sprite = SpritePool.bumpRingsPool.makeSprite()
-
-    sprite.size = size
-    sprite.color = color
-    sprite.colorBlendFactor = 1
-
-    return sprite
-}
-
 class ArenaScene: SKScene, SKSceneDelegate, ObservableObject {
     var tickCount = 0
 
@@ -25,19 +15,76 @@ class ArenaScene: SKScene, SKSceneDelegate, ObservableObject {
 
     // The radius is our scale factor. The 95% is to shrink it enough to
     // keep the circles visible
-    lazy var arenaScaleFactor = 0.95 * self.size.width / 2
+    lazy var arenaScaleFactor = 0.95 * self.size.radius
 
-    var trundle: Trundle!
+    var wormClub: WormClub!
+
     override func didMove(to view: SKView) {
-        trundle = .init(parentTrundle: self, size: .init(square: 100), color: .yellow)
+        let zilla = SpritePool.ringsPool.makeSprite()
+        zilla.size = self.size
+        zilla.color = .yellow
+        zilla.anchorPoint = .anchorAtCenter
+        self.addChild(zilla)
+
+        zilla.setScale(0.5)
+
+        print("zilla \(zilla.size), \(zilla.position)")
+
+        let p0 = makePenRing(parent: zilla)
+        let p1 = makePenRing(parent: p0)
+        let p2 = makePenRing(parent: p1)
+        let p3 = makePenRing(parent: p2)
+
+        for p in [p0, p1, p2, p3] {
+            let halfPulse0 = SKAction.move(by: CGVector(dx: p.radius * 2, dy: 0), duration: 2)
+            halfPulse0.timingMode = .easeInEaseOut
+            let pulse0Forever = SKAction.repeatForever(SKAction.sequence([halfPulse0, halfPulse0.reversed()]))
+            let waitASecond = SKAction.wait(forDuration: 1)
+            p.run(SKAction.sequence([waitASecond, pulse0Forever]))
+        }
+
+        zilla.setScale(1)
+    }
+
+    @discardableResult
+    func makePenRing(parent: SKNode) -> SKSpriteNode {
+        let penRing = SpritePool.ringsPool.makeSprite()
+
+        penRing.color = .green
+        penRing.anchorPoint = .anchorAtCenter
+        parent.addChild(penRing)
+
+        let parentRadius: Double
+        switch parent {
+        case let p as ArenaScene:
+            parentRadius = p.size.radius
+            penRing.size = p.size
+
+        case let p as SKSpriteNode:
+            parentRadius = p.size.radius
+            penRing.size = p.size * 2.0
+
+        default: fatalError()
+        }
+
+        print("pre \(penRing.radius)")
+
+        penRing.setScale(0.5)
+
+        let omg = (-parentRadius - penRing.radius) / 2.0
+        penRing.position = CGPoint(x:omg, y: 0)
+
+        print("child \(penRing.size), \(penRing.position), \(parentRadius), \(penRing.radius)")
+
+        return penRing
     }
 
     func showRings(_ show: Bool) {
-        trundle?.showRings(show)
+//        trundle?.showRings(show)
     }
 
     func setPenRingRadius(_ radius: Double) {
-        trundle?.setPenRingRadius(radius)
+//        trundle?.setPenRingRadius(radius)
     }
 
     required init?(coder aDecoder: NSCoder) {
