@@ -21,7 +21,7 @@ class ArenaScene: SKScene, SKSceneDelegate, ObservableObject {
     var elves = [Elf]()
 
     override func didMove(to view: SKView) {
-        makeRings(10)
+        makeRings(3)
     }
 
     func makeRings(_ cRings: Int) {
@@ -31,7 +31,7 @@ class ArenaScene: SKScene, SKSceneDelegate, ObservableObject {
             let hue = (0.5 + Double(ringIx) * hueDelta).truncatingRemainder(dividingBy: 1)
 
             let color = SKColor(calibratedHue: hue, saturation: 0.5, brightness: 1, alpha: 1)
-            let penRingRadius = 0.95 - Double(ringIx) * 0.07
+            let penRingRadius = 0.95 - Double(ringIx) * 0.1
 
             let elf = (ringIx == 0) ?
             Elf(parent: self, color: color) :
@@ -41,8 +41,18 @@ class ArenaScene: SKScene, SKSceneDelegate, ObservableObject {
         }
     }
 
+    let radiansPerCycle = Double.tau
+    let cyclesPerSecond = 1.0
+    let ticksPerSecond = 60.0
+    var radiansPerTick = Double.tau / 60
+
+    func setMainRingSpeed(_ cyclesPerSecond: Double) {
+        self.radiansPerTick =
+            radiansPerCycle / ticksPerSecond * cyclesPerSecond
+    }
+
     override func update(_ currentTime: TimeInterval) {
-        var rotation = 0.5 * Double.tau / 60.0
+        var rotation = radiansPerTick
 
         var applyRotation = [Bool](repeating: true, count: elves.count)
         applyRotation[0] = true

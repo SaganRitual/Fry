@@ -6,22 +6,23 @@ import SwiftUI
 struct AppSettingsView: View {
     @EnvironmentObject var arena: ArenaScene
 
+    @State var mainRingSpeedHz = UserDefaults.standard.double(forKey: "mainRingSpinRate")
     @State var penRingRadius = 1.0
     @State var showRings = true
 
-    static let radiusRange = 0.0...1.0
+    static let speedRange = 0.0...1.0
 
     var body: some View {
         VStack {
             SliderView(
-                label: "Pen ring radius", labellet: "X",
-                range: AppSettingsView.radiusRange, step: 0.05,
-                decimals: 2, value: $penRingRadius
+                label: "Speed", labellet: "X",
+                range: AppSettingsView.speedRange, step: 0.05,
+                decimals: 2, value: $mainRingSpeedHz
             )
             .modifier(SliderViewDefaults())
-            .help("Pen ring radius as a fraction of parent ring's radius")
-            .onAppear(perform: { self.setPenRingRadius(penRingRadius) })
-            .onChange(of: penRingRadius) { self.setPenRingRadius($0) }
+            .help("Outermost ring cycles per second rate")
+            .onAppear(perform: { self.setMainRingSpeed(mainRingSpeedHz) })
+            .onChange(of: mainRingSpeedHz) { self.setMainRingSpeed($0) }
 
             Text("Show/hide").font(.title).padding([.top, .bottom], 15)
 
@@ -36,6 +37,11 @@ struct AppSettingsView: View {
 }
 
 extension AppSettingsView {
+    func setMainRingSpeed(_ cyclesPerSecond: Double) {
+        UserDefaults.standard.set(cyclesPerSecond, forKey: "mainRingSpinRate")
+        arena.setMainRingSpeed(cyclesPerSecond)
+    }
+
     func showRings(_ show: Bool) {
         UserDefaults.standard.set(show, forKey: "showRings")
         arena.showRings(show)
