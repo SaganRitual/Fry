@@ -39,7 +39,7 @@ class Elf {
 
     init(parent: Elf, penRingRadius: Double, color: SKColor) {
         radius = penRingRadius
-        scale = parent.sprite.radius * penRingRadius
+        scale = penRingRadius
 
         sprite = SpritePool.bumpRingsPool.makeSprite()
         sprite.anchorPoint = .anchorAtCenter
@@ -51,10 +51,15 @@ class Elf {
     }
 
     func rotate(against parentRotation: Double) -> Double {
-        let myRotation = parentRotation * scale
+        let myRotation = parentRotation / scale
         sprite.zRotation += myRotation
 
-        print("ro \(scale.asString(decimals: 4)) / \(parentRotation.asString(decimals: 4)) -> \(myRotation.asString(decimals: 4)) \(Double(sprite.zRotation).asString(decimals: 4))")
+        print(
+            "scale \(scale.asString(decimals: 4))"
+            + " / parent rotation \(parentRotation.asString(decimals: 4))"
+            + " -> myRotation \(myRotation.asString(decimals: 4))"
+            + " my sprite rotation \(Double(sprite.zRotation).asString(decimals: 4))"
+        )
         return -myRotation
     }
 }

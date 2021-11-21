@@ -29,10 +29,10 @@ class ArenaScene: SKScene, SKSceneDelegate, ObservableObject {
 //        zilla.anchorPoint = .anchorAtCenter
 //        self.addChild(zilla)
 
-//        let e0 = Elf(parent: zilla, penRingRadius: 0.75, color: .magenta)
+        let e0 = Elf(parent: zilla, penRingRadius: 0.75, color: .magenta)
 //        let e1 = Elf(parent: e0, penRingRadius: 0.71, color: .green)
 
-        elves.append(contentsOf: [zilla])
+        elves.append(contentsOf: [zilla, e0])
 
 //        for p in [e0, e1] {
 //            let halfPulse0 = SKAction.move(by: CGVector(dx: p.radius * 2, dy: 0), duration: 2)
