@@ -59,7 +59,7 @@ class SpinnyRing {
     }
 
     static func makeRingSprite(color: SKColor) -> SKSpriteNode {
-        let sprite = SpritePool.bumpRingsPool.makeSprite()
+        let sprite = SpritePool.ringBumpsPool.makeSprite()
 
         sprite.size = .init(square: 1.0)
         sprite.color = color

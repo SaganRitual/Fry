@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D430D8C8274B66A700B93D5C /* Dotter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430D8C7274B66A700B93D5C /* Dotter.swift */; };
+		D430D8C9274B66A700B93D5C /* Dotter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430D8C7274B66A700B93D5C /* Dotter.swift */; };
 		D4DB6C3427498B72008F9D4E /* FryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DB6C2427498B71008F9D4E /* FryApp.swift */; };
 		D4DB6C3527498B72008F9D4E /* FryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DB6C2427498B71008F9D4E /* FryApp.swift */; };
 		D4DB6C3627498B72008F9D4E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DB6C2527498B71008F9D4E /* ContentView.swift */; };
@@ -44,6 +46,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D430D8C7274B66A700B93D5C /* Dotter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dotter.swift; sourceTree = "<group>"; };
 		D4DB6C2427498B71008F9D4E /* FryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FryApp.swift; sourceTree = "<group>"; };
 		D4DB6C2527498B71008F9D4E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D4DB6C2B27498B72008F9D4E /* Fry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fry.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,6 +102,7 @@
 				D4DB6C4B2749A9C3008F9D4E /* AppSettingsView.swift */,
 				D4DB6C4227498C17008F9D4E /* ArenaScene.swift */,
 				D4DB6C2527498B71008F9D4E /* ContentView.swift */,
+				D430D8C7274B66A700B93D5C /* Dotter.swift */,
 				D4DB6CBE274A916F008F9D4E /* Elf.swift */,
 				D4DB6C2427498B71008F9D4E /* FryApp.swift */,
 				D4DB6C6B2749CCAA008F9D4E /* SpinnyRing.swift */,
@@ -254,6 +258,7 @@
 				D4DB6C6C2749CCAA008F9D4E /* SpinnyRing.swift in Sources */,
 				D4DB6C662749ABE1008F9D4E /* TriangleFormulae.swift in Sources */,
 				D4DB6C602749ABE1008F9D4E /* Deque.swift in Sources */,
+				D430D8C8274B66A700B93D5C /* Dotter.swift in Sources */,
 				D4DB6C5E2749ABE1008F9D4E /* GridPoint.swift in Sources */,
 				D4DB6C4C2749A9C3008F9D4E /* AppSettingsView.swift in Sources */,
 				D4DB6C692749AC67008F9D4E /* Trundle.swift in Sources */,
@@ -277,6 +282,7 @@
 				D4DB6C6D2749CCAA008F9D4E /* SpinnyRing.swift in Sources */,
 				D4DB6C672749ABE1008F9D4E /* TriangleFormulae.swift in Sources */,
 				D4DB6C612749ABE1008F9D4E /* Deque.swift in Sources */,
+				D430D8C9274B66A700B93D5C /* Dotter.swift in Sources */,
 				D4DB6C5F2749ABE1008F9D4E /* GridPoint.swift in Sources */,
 				D4DB6C4D2749A9C3008F9D4E /* AppSettingsView.swift in Sources */,
 				D4DB6C6A2749AC67008F9D4E /* Trundle.swift in Sources */,

@@ -40,48 +40,6 @@ class Elf {
         sprite.radius = penRingRadius * arenaScale
     }
 
-    var scale_: Double = 1.0 {
-        willSet {
-            print(
-                "scale"
-                + " sprite @\(sprite.position)"
-                + " r\(sprite.radius)"
-                + " <- \(newValue) ->"
-                , terminator: ""
-            )
-
-            let scaleForSpriteImage: Double
-            switch spriteCharacter {
-            case .bigSmooth:   scaleForSpriteImage = 1.0
-            case .smallSmooth: scaleForSpriteImage = 0.25
-            case .bump:        scaleForSpriteImage = 1.0
-            }
-
-            let newValueScaled = newValue * scaleForSpriteImage
-
-            sprite.position = CGPoint(
-                radius: parent.size.radius * (1 - newValueScaled), theta: 0
-            )
-
-            sprite.radius = radius * newValueScaled
-
-            print(
-                " sprite @\(sprite.position)"
-                + " r\(sprite.radius)"
-                + " elf @\(self.position)"
-                + " r\(self.radius)"
-            )
-        }
-    }
-
-    var radius: Double = 1.0 {
-        willSet { sprite.radius = scale * newValue }
-    }
-
-    var position: CGPoint = .zero {
-        willSet { sprite.position = scale * newValue }
-    }
-
     static func setupSprite(
         _ character: SpriteCharacter, parentRadius: Double,
         penRingRadius: Double, color: SKColor
@@ -91,7 +49,7 @@ class Elf {
         switch character {
         case .bigSmooth:   sprite = SpritePool.rings1024_4.makeSprite()
         case .smallSmooth: sprite = SpritePool.rings256_10.makeSprite()
-        case .bump:        sprite = SpritePool.bumpRingsPool.makeSprite()
+        case .bump:        sprite = SpritePool.ringBumpsPool.makeSprite()
         }
 
         sprite.anchorPoint = .anchorAtCenter
@@ -102,7 +60,7 @@ class Elf {
         return sprite
     }
 
-    init(parent: ArenaScene, color: SKColor) {
+    init(parent: ArenaScene, color: SKColor, spriteCharacter: SpriteCharacter = .bigSmooth) {
         self.penRingRadius = 1.0
 
         let parentRadius = parent.size.radius
@@ -110,7 +68,7 @@ class Elf {
         bigSmoothRing = Self.setupSprite(.bigSmooth, parentRadius: parentRadius, penRingRadius: penRingRadius, color: color)
         smallSmoothRing = Self.setupSprite(.smallSmooth, parentRadius: parentRadius, penRingRadius: penRingRadius, color: color)
 
-        spriteCharacter = .bigSmooth
+        self.spriteCharacter = spriteCharacter
         parent.addChild(sprite)
     }
 

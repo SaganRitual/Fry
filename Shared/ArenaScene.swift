@@ -6,6 +6,10 @@ import SwiftUI
 class ArenaScene: SKScene, SKSceneDelegate, ObservableObject {
     var tickCount = 0
 
+    lazy var dotter = Dotter(
+        self, dotSize: CGSize(square: 2.5), dotLifespan: 10
+    )
+
     override init(size: CGSize) {
         super.init(size: size)
 
@@ -31,15 +35,13 @@ class ArenaScene: SKScene, SKSceneDelegate, ObservableObject {
             let hue = (0.5 + Double(ringIx) * hueDelta).truncatingRemainder(dividingBy: 1)
 
             let color = SKColor(calibratedHue: hue, saturation: 0.5, brightness: 1, alpha: 1)
-            let penRingRadius = 0.95 - Double(ringIx) * 0.05
+            let penRingRadius = 0.95 - Double(ringIx) * 0.1
 
 //            print("makeRings penRingRadius = \(penRingRadius.asString(decimals: 4)))")
 
-            let spriteCharacter: Elf.SpriteCharacter = (penRingRadius > 0.6) ? .bigSmooth : .smallSmooth
-
             let elf = (ringIx == 0) ?
-            Elf(parent: self, color: color) :
-            Elf(parent: elves.last!, penRingRadius: penRingRadius, color: color, spriteCharacter: spriteCharacter)
+            Elf(parent: self, color: color, spriteCharacter: .bump) :
+            Elf(parent: elves.last!, penRingRadius: penRingRadius, color: color, spriteCharacter: .bump)
 
             elves.append(elf)
         }
@@ -55,15 +57,33 @@ class ArenaScene: SKScene, SKSceneDelegate, ObservableObject {
             radiansPerCycle / ticksPerSecond * cyclesPerSecond
     }
 
+    var applyRotation = [Bool]()
+
     override func update(_ currentTime: TimeInterval) {
         var rotation = radiansPerTick
 
-        var applyRotation = [Bool](repeating: true, count: elves.count)
-        applyRotation[0] = true
+        if applyRotation.isEmpty {
+            applyRotation = [Bool](repeating: true, count: elves.count)
+        }
+//
+//        if Double.random(in: 0..<1) < 0.01 {
+//            applyRotation = (0..<elves.count).map { _ in Bool.random() }
+//        }
 
         for (elf, apply) in zip(elves, applyRotation) {
             rotation = elf.rotate(against: rotation, applyToSprite: apply)
         }
+
+        tickCount += 1
+//
+//        let hue = Double(tickCount % 600) / 600.0
+//        let color = EnglishBobColor(hue: hue, saturation: 1, brightness: 1, alpha: 1)
+//
+//        let e = elves.last!
+//        let s = e.sprite
+//        let p = (s.position - CGPoint(x: 5, y: 0)) + CGPoint(x: e.penRingRadius * s.radius, y: 0)
+//        let drop = s.convert(p, to: self)
+//        dotter.dropDot(at: drop, color: color)
     }
 
     func showRings(_ show: Bool) {
