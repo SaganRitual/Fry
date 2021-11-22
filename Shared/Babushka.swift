@@ -7,6 +7,7 @@ class Babushka {
     var rings = [Owl]()
 
     var count: Int { rings.count }
+    var isEmpty: Bool { rings.isEmpty }
 
     var applyRotation = [Bool]()
 
@@ -66,5 +67,22 @@ class Babushka {
     func setMainRingSpeed(_ rotationHz: Double) {
         self.radiansPerTick =
             radiansPerCycle / ticksPerSecond * rotationHz
+    }
+
+    func setPenRingRadius(_ radius: Double, forRing ringIx: Int) {
+        // This only happens because we do our scene init in didMove(),
+        // which happens approximately 4.7 years after the UI views appear
+        if rings.isEmpty { return }
+
+        precondition(
+            ringIx > 0, "Pen ring radius is always 1 for the outer ring"
+        )
+
+        let ds = deepScale(at: ringIx)
+        rings[ringIx].setPenRingRadius(radius, deepScale: ds)
+
+        for ix in (ringIx + 1)..<rings.count {
+            rings[ix].rescale(to: deepScale(at: ix))
+        }
     }
 }

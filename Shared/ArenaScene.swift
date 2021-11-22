@@ -46,7 +46,7 @@ class ArenaScene: SKScene, SKSceneDelegate, ObservableObject {
     var babushka: Babushka!
 
     override func didMove(to view: SKView) {
-        makeRings(2)
+        makeRings(5)
     }
 
     func makeRings(_ cRings: Int) {
@@ -60,7 +60,7 @@ class ArenaScene: SKScene, SKSceneDelegate, ObservableObject {
 
             precondition(penRingRadius > 0, "Weird pen ring radius")
 
-            print("makeRings penRingRadius = \(penRingRadius.asString(decimals: 4))")
+//            print("makeRings penRingRadius = \(penRingRadius.asString(decimals: 4))")
 
             babushka.makeRing(penRingRadius: penRingRadius, color: color)
         }
@@ -86,10 +86,7 @@ class ArenaScene: SKScene, SKSceneDelegate, ObservableObject {
     }
 
     func setPenRingRadius(_ radius: Double) {
-//        if elves.count > 1 {
-//            print("arena set prr \(radius), scale \(self.size.radius)")
-//            elves[1].setPenRingRadius(radius, arenaScale: self.size.radius)
-//        }
+        babushka.setPenRingRadius(radius, forRing: 1)
     }
 
     func setMainRingSpeed(_ cyclesPerSecond: Double) {

@@ -27,7 +27,7 @@ struct AppSettingsView: View {
 
             SliderView(
                 label: "Pen ring radius", labellet: "",
-                range: AppSettingsView.penRingRadiusRange, step: 0.5,
+                range: AppSettingsView.penRingRadiusRange, step: 0.05,
                 decimals: 2, value: $penRingRadius
             )
             .modifier(SliderViewDefaults())
@@ -59,7 +59,7 @@ extension AppSettingsView {
     }
 
     func setPenRingRadius(_ radius: Double) {
-        UserDefaults.standard.set(penRingRadius, forKey: "penRingRadius")
-        arena.setPenRingRadius(penRingRadius)
+        UserDefaults.standard.set(radius, forKey: "penRingRadius")
+        arena.setPenRingRadius(radius)
     }
 }
