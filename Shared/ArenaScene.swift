@@ -43,7 +43,7 @@ class ArenaScene: SKScene, SKSceneDelegate, ObservableObject {
     var elves = [Elf]()
 
     override func didMove(to view: SKView) {
-        makeRings(3)
+        makeRings(4)
     }
 
     func makeRings(_ cRings: Int) {
