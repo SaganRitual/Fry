@@ -23,7 +23,24 @@ class Elf {
 
     private var parent: SKSpriteNode { (sprite.parent! as? SKSpriteNode)! }
 
-    var scale: Double = 1.0 {
+    var penRingRadius = 1.0
+
+    var scale: Double { penRingRadius }
+
+    func setPenRingRadius(_ penRingRadius: Double, arenaScale: Double) {
+        self.penRingRadius = penRingRadius
+        placeSprite(arenaScale)
+    }
+
+    func placeSprite(_ arenaScale: Double) {
+        sprite.position = CGPoint(
+            radius: arenaScale * parent.size.radius * (1 - penRingRadius), theta: 0
+        )
+
+        sprite.radius = penRingRadius * arenaScale
+    }
+
+    var scale_: Double = 1.0 {
         willSet {
             print(
                 "scale"
@@ -86,10 +103,7 @@ class Elf {
     }
 
     init(parent: ArenaScene, color: SKColor) {
-        let penRingRadius = 1.0
-
-        radius = penRingRadius
-        scale = penRingRadius
+        self.penRingRadius = 1.0
 
         let parentRadius = parent.size.radius
         bumpRing = Self.setupSprite(.bump, parentRadius: parentRadius, penRingRadius: penRingRadius, color: color)
@@ -101,8 +115,7 @@ class Elf {
     }
 
     init(parent: Elf, penRingRadius: Double, color: SKColor, spriteCharacter: SpriteCharacter = .bigSmooth) {
-        radius = penRingRadius
-        scale = penRingRadius
+        self.penRingRadius = penRingRadius
 
         let parentRadius = parent.sprite.radius
         bumpRing = Self.setupSprite(.bump, parentRadius: parentRadius, penRingRadius: penRingRadius, color: color)

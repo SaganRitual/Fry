@@ -31,7 +31,7 @@ class ArenaScene: SKScene, SKSceneDelegate, ObservableObject {
             let hue = (0.5 + Double(ringIx) * hueDelta).truncatingRemainder(dividingBy: 1)
 
             let color = SKColor(calibratedHue: hue, saturation: 0.5, brightness: 1, alpha: 1)
-            let penRingRadius = 0.95 - Double(ringIx) * 0.1
+            let penRingRadius = 0.95 - Double(ringIx) * 0.05
 
 //            print("makeRings penRingRadius = \(penRingRadius.asString(decimals: 4)))")
 
@@ -72,8 +72,7 @@ class ArenaScene: SKScene, SKSceneDelegate, ObservableObject {
 
     func setPenRingRadius(_ radius: Double) {
         if elves.count > 1 {
-            elves[1].scale = radius
-            elves[1].radius = 1
+            elves[1].setPenRingRadius(radius, arenaScale: self.size.radius)
         }
     }
 
