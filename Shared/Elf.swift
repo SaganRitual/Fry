@@ -21,7 +21,7 @@ class Elf {
         }
     }
 
-    private var parent: SKSpriteNode { (sprite.parent! as? SKSpriteNode)! }
+    private let parentElf: Elf!
 
     var penRingRadius = 1.0
 
@@ -32,12 +32,22 @@ class Elf {
         placeSprite(arenaScale)
     }
 
-    func placeSprite(_ arenaScale: Double) {
+    func placeSpritezilla(_ arenaScale: Double) {
         sprite.position = CGPoint(
-            radius: arenaScale * parent.size.radius * (1 - penRingRadius), theta: 0
+            radius: arenaScale * (1 - penRingRadius), theta: 0
         )
 
         sprite.radius = penRingRadius * arenaScale
+    }
+
+    func placeSprite(_ arenaScale: Double) {
+        print("ps \(arenaScale.asString(decimals: 4))")
+
+        sprite.position = CGPoint(
+            radius: arenaScale * (1 - penRingRadius) * parentElf.penRingRadius, theta: 0
+        )
+
+        sprite.radius = arenaScale * penRingRadius * parentElf.penRingRadius
     }
 
     static func setupSprite(
@@ -61,27 +71,52 @@ class Elf {
     }
 
     init(parent: ArenaScene, color: SKColor, spriteCharacter: SpriteCharacter = .bigSmooth) {
+        self.parentElf = nil
         self.penRingRadius = 1.0
 
-        let parentRadius = parent.size.radius
+        let parentRadius = 1.0
         bumpRing = Self.setupSprite(.bump, parentRadius: parentRadius, penRingRadius: penRingRadius, color: color)
         bigSmoothRing = Self.setupSprite(.bigSmooth, parentRadius: parentRadius, penRingRadius: penRingRadius, color: color)
         smallSmoothRing = Self.setupSprite(.smallSmooth, parentRadius: parentRadius, penRingRadius: penRingRadius, color: color)
 
         self.spriteCharacter = spriteCharacter
         parent.addChild(sprite)
+
+        placeSpritezilla(ContentView.arenaSize.radius)
+
+        print(
+            "Elfzilla"
+            + " penRing r\(self.penRingRadius.asString(decimals: 4))"
+            + " parent r\(parentRadius.asString(decimals: 4))"
+            + " bumpRing @\(bumpRing.position.x.asString(decimals: 4))"
+            + " r\(bumpRing.radius.asString(decimals: 4))"
+        )
     }
 
-    init(parent: Elf, penRingRadius: Double, color: SKColor, spriteCharacter: SpriteCharacter = .bigSmooth) {
+    init(
+        parentElf: Elf, penRingRadius: Double, color: SKColor,
+        spriteCharacter: SpriteCharacter = .bigSmooth
+    ) {
+        self.parentElf = parentElf
         self.penRingRadius = penRingRadius
 
-        let parentRadius = parent.sprite.radius
+        let parentRadius = parentElf.penRingRadius
         bumpRing = Self.setupSprite(.bump, parentRadius: parentRadius, penRingRadius: penRingRadius, color: color)
         bigSmoothRing = Self.setupSprite(.bigSmooth, parentRadius: parentRadius, penRingRadius: penRingRadius, color: color)
         smallSmoothRing = Self.setupSprite(.smallSmooth, parentRadius: parentRadius, penRingRadius: penRingRadius, color: color)
 
         self.spriteCharacter = spriteCharacter
-        parent.sprite.addChild(sprite)
+        parentElf.sprite.addChild(sprite)
+
+        placeSprite(ContentView.arenaSize.radius)
+
+        print(
+            "Elf"
+            + " penRing r\(self.penRingRadius.asString(decimals: 4))"
+            + " parent r\(parentRadius.asString(decimals: 4))"
+            + " bumpRing @\(bumpRing.position.x.asString(decimals: 4))"
+            + " r\(bumpRing.radius.asString(decimals: 4))"
+        )
     }
 
     func rotate(against parentRotation: Double, applyToSprite: Bool = true) -> Double {

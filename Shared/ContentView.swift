@@ -4,7 +4,8 @@ import SpriteKit
 import SwiftUI
 
 struct ContentView: View {
-    let arena = ArenaScene(size: CGSize(square: 200))
+    static let arenaSize = CGSize(square: 200)
+    let arena = ArenaScene(size: Self.arenaSize)
 
     var body: some View {
         HStack {

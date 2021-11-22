@@ -19,6 +19,10 @@ extension SKSpriteNode {
 
 extension CGFloat {
     static let tau = CGFloat.pi * 2
+
+    func asString(decimals: Int) -> String {
+        Double(self).asString(decimals: decimals)
+    }
 }
 
 extension Double {

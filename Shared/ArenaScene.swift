@@ -3,6 +3,24 @@
 import SpriteKit
 import SwiftUI
 
+class ScaleTracker {
+    let arenaScale: Double
+    var scales = [Double]()
+
+    init(arenaScale: Double) { self.arenaScale = arenaScale }
+
+    func getAccumulatedScale(at index: Int) -> Double {
+        let internalScale = scales[index...].reduce(0, *)
+        return internalScale == 0 ? 1 : internalScale
+    }
+
+    func registerScale(_ scale: Double) { scales.append(scale) }
+
+    func rescale(at index: Int, penRingRadius: Double) {
+        scales[index] = penRingRadius
+    }
+}
+
 class ArenaScene: SKScene, SKSceneDelegate, ObservableObject {
     var tickCount = 0
 
@@ -25,7 +43,7 @@ class ArenaScene: SKScene, SKSceneDelegate, ObservableObject {
     var elves = [Elf]()
 
     override func didMove(to view: SKView) {
-        makeRings(10)
+        makeRings(3)
     }
 
     func makeRings(_ cRings: Int) {
@@ -35,13 +53,15 @@ class ArenaScene: SKScene, SKSceneDelegate, ObservableObject {
             let hue = (0.5 + Double(ringIx) * hueDelta).truncatingRemainder(dividingBy: 1)
 
             let color = SKColor(calibratedHue: hue, saturation: 0.5, brightness: 1, alpha: 1)
-            let penRingRadius = 0.95 - Double(ringIx) * 0.1
+            let penRingRadius = 1.0 - Double(ringIx) * 0.1
 
-//            print("makeRings penRingRadius = \(penRingRadius.asString(decimals: 4)))")
+            precondition(penRingRadius > 0, "Weird pen ring radius")
+
+            print("makeRings penRingRadius = \(penRingRadius.asString(decimals: 4))")
 
             let elf = (ringIx == 0) ?
             Elf(parent: self, color: color, spriteCharacter: .bump) :
-            Elf(parent: elves.last!, penRingRadius: penRingRadius, color: color, spriteCharacter: .bump)
+            Elf(parentElf: elves.last!, penRingRadius: penRingRadius, color: color, spriteCharacter: .bump)
 
             elves.append(elf)
         }
@@ -75,15 +95,15 @@ class ArenaScene: SKScene, SKSceneDelegate, ObservableObject {
         }
 
         tickCount += 1
-//
-//        let hue = Double(tickCount % 600) / 600.0
-//        let color = EnglishBobColor(hue: hue, saturation: 1, brightness: 1, alpha: 1)
-//
-//        let e = elves.last!
-//        let s = e.sprite
-//        let p = (s.position - CGPoint(x: 5, y: 0)) + CGPoint(x: e.penRingRadius * s.radius, y: 0)
-//        let drop = s.convert(p, to: self)
-//        dotter.dropDot(at: drop, color: color)
+
+        let hue = Double(tickCount % 600) / 600.0
+        let color = EnglishBobColor(hue: hue, saturation: 1, brightness: 1, alpha: 1)
+
+        let e = elves.last!
+        let s = e.sprite
+        let p = (s.position - CGPoint(x: 5, y: 0)) + CGPoint(x: e.penRingRadius * s.radius, y: 0)
+        let drop = s.convert(p, to: self)
+        dotter.dropDot(at: drop, color: color)
     }
 
     func showRings(_ show: Bool) {
@@ -92,6 +112,7 @@ class ArenaScene: SKScene, SKSceneDelegate, ObservableObject {
 
     func setPenRingRadius(_ radius: Double) {
         if elves.count > 1 {
+            print("arena set prr \(radius), scale \(self.size.radius)")
             elves[1].setPenRingRadius(radius, arenaScale: self.size.radius)
         }
     }

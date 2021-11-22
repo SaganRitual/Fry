@@ -27,7 +27,7 @@ struct AppSettingsView: View {
 
             SliderView(
                 label: "Pen ring radius", labellet: "",
-                range: AppSettingsView.penRingRadiusRange, step: 0.05,
+                range: AppSettingsView.penRingRadiusRange, step: 0.5,
                 decimals: 2, value: $penRingRadius
             )
             .modifier(SliderViewDefaults())
