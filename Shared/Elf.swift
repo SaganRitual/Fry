@@ -21,6 +21,8 @@ class Elf {
         }
     }
 
+    let ix: Int
+
     private let parentElf: Elf!
 
     var penRingRadius = 1.0
@@ -41,13 +43,14 @@ class Elf {
     }
 
     func placeSprite(_ arenaScale: Double) {
-        print("ps \(arenaScale.asString(decimals: 4))")
+        let accumulatedScale = ArenaScene.scaleTracker.getAccumulatedScale(at: ix)
+        print("accumulated scale at \(ix): \(accumulatedScale.asString(decimals: 4)) arena scale \(arenaScale.asString(decimals: 4))")
 
         sprite.position = CGPoint(
-            radius: arenaScale * (1 - penRingRadius) * parentElf.penRingRadius, theta: 0
+            radius: arenaScale * (1 - penRingRadius) * accumulatedScale, theta: 0
         )
 
-        sprite.radius = arenaScale * penRingRadius * parentElf.penRingRadius
+        sprite.radius = arenaScale * penRingRadius * accumulatedScale
     }
 
     static func setupSprite(
@@ -71,6 +74,7 @@ class Elf {
     }
 
     init(parent: ArenaScene, color: SKColor, spriteCharacter: SpriteCharacter = .bigSmooth) {
+        self.ix = -1
         self.parentElf = nil
         self.penRingRadius = 1.0
 
@@ -94,9 +98,11 @@ class Elf {
     }
 
     init(
+        ix: Int,
         parentElf: Elf, penRingRadius: Double, color: SKColor,
         spriteCharacter: SpriteCharacter = .bigSmooth
     ) {
+        self.ix = ix
         self.parentElf = parentElf
         self.penRingRadius = penRingRadius
 

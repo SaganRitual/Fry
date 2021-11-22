@@ -3,15 +3,15 @@
 import SpriteKit
 import SwiftUI
 
+// Only handles internal scaling, knows nothing about the final scale to
+// the arena
 class ScaleTracker {
-    let arenaScale: Double
     var scales = [Double]()
 
-    init(arenaScale: Double) { self.arenaScale = arenaScale }
-
     func getAccumulatedScale(at index: Int) -> Double {
-        let internalScale = scales[index...].reduce(0, *)
-        return internalScale == 0 ? 1 : internalScale
+        if index == 0 { return 1 }
+
+        return scales.dropLast(scales.count - index).reduce(1, *)
     }
 
     func registerScale(_ scale: Double) { scales.append(scale) }
@@ -41,12 +41,15 @@ class ArenaScene: SKScene, SKSceneDelegate, ObservableObject {
     lazy var arenaRadius = arenaDiameter / 2.0
 
     var elves = [Elf]()
+    static var scaleTracker: ScaleTracker!
 
     override func didMove(to view: SKView) {
         makeRings(4)
     }
 
     func makeRings(_ cRings: Int) {
+        Self.scaleTracker = ScaleTracker()
+
         let hueDelta = 1.0 / Double(cRings)
 
         for ringIx in 0..<cRings {
@@ -61,9 +64,10 @@ class ArenaScene: SKScene, SKSceneDelegate, ObservableObject {
 
             let elf = (ringIx == 0) ?
             Elf(parent: self, color: color, spriteCharacter: .bump) :
-            Elf(parentElf: elves.last!, penRingRadius: penRingRadius, color: color, spriteCharacter: .bump)
+            Elf(ix: ringIx, parentElf: elves.last!, penRingRadius: penRingRadius, color: color, spriteCharacter: .bump)
 
             elves.append(elf)
+            Self.scaleTracker.registerScale(penRingRadius)
         }
     }
 
