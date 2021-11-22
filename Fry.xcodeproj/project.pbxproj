@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		D430D8C8274B66A700B93D5C /* Dotter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430D8C7274B66A700B93D5C /* Dotter.swift */; };
 		D430D8C9274B66A700B93D5C /* Dotter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430D8C7274B66A700B93D5C /* Dotter.swift */; };
+		D43CD620274BF8AB00360FAD /* Owl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43CD61F274BF8AB00360FAD /* Owl.swift */; };
+		D43CD621274BF8B700360FAD /* Owl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43CD61F274BF8AB00360FAD /* Owl.swift */; };
+		D43CD623274BFBE100360FAD /* Babushka.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43CD622274BFBE100360FAD /* Babushka.swift */; };
+		D43CD624274BFBE100360FAD /* Babushka.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43CD622274BFBE100360FAD /* Babushka.swift */; };
 		D4DB6C3427498B72008F9D4E /* FryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DB6C2427498B71008F9D4E /* FryApp.swift */; };
 		D4DB6C3527498B72008F9D4E /* FryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DB6C2427498B71008F9D4E /* FryApp.swift */; };
 		D4DB6C3627498B72008F9D4E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DB6C2527498B71008F9D4E /* ContentView.swift */; };
@@ -41,12 +45,12 @@
 		D4DB6C6D2749CCAA008F9D4E /* SpinnyRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DB6C6B2749CCAA008F9D4E /* SpinnyRing.swift */; };
 		D4DB6C6F2749EC57008F9D4E /* Worm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DB6C6E2749EC57008F9D4E /* Worm.swift */; };
 		D4DB6C702749EC57008F9D4E /* Worm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DB6C6E2749EC57008F9D4E /* Worm.swift */; };
-		D4DB6CBF274A916F008F9D4E /* Elf.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DB6CBE274A916F008F9D4E /* Elf.swift */; };
-		D4DB6CC0274A916F008F9D4E /* Elf.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DB6CBE274A916F008F9D4E /* Elf.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D430D8C7274B66A700B93D5C /* Dotter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dotter.swift; sourceTree = "<group>"; };
+		D43CD61F274BF8AB00360FAD /* Owl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Owl.swift; sourceTree = "<group>"; };
+		D43CD622274BFBE100360FAD /* Babushka.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Babushka.swift; sourceTree = "<group>"; };
 		D4DB6C2427498B71008F9D4E /* FryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FryApp.swift; sourceTree = "<group>"; };
 		D4DB6C2527498B71008F9D4E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D4DB6C2B27498B72008F9D4E /* Fry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fry.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,7 +70,6 @@
 		D4DB6C682749AC67008F9D4E /* Trundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trundle.swift; sourceTree = "<group>"; };
 		D4DB6C6B2749CCAA008F9D4E /* SpinnyRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnyRing.swift; sourceTree = "<group>"; };
 		D4DB6C6E2749EC57008F9D4E /* Worm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Worm.swift; sourceTree = "<group>"; };
-		D4DB6CBE274A916F008F9D4E /* Elf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Elf.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,10 +104,11 @@
 			children = (
 				D4DB6C4B2749A9C3008F9D4E /* AppSettingsView.swift */,
 				D4DB6C4227498C17008F9D4E /* ArenaScene.swift */,
+				D43CD622274BFBE100360FAD /* Babushka.swift */,
 				D4DB6C2527498B71008F9D4E /* ContentView.swift */,
 				D430D8C7274B66A700B93D5C /* Dotter.swift */,
-				D4DB6CBE274A916F008F9D4E /* Elf.swift */,
 				D4DB6C2427498B71008F9D4E /* FryApp.swift */,
+				D43CD61F274BF8AB00360FAD /* Owl.swift */,
 				D4DB6C6B2749CCAA008F9D4E /* SpinnyRing.swift */,
 				D4DB6C4527498C5C008F9D4E /* SpritePool.swift */,
 				D4DB6C682749AC67008F9D4E /* Trundle.swift */,
@@ -264,11 +268,12 @@
 				D4DB6C692749AC67008F9D4E /* Trundle.swift in Sources */,
 				D4DB6C622749ABE1008F9D4E /* Extensions.swift in Sources */,
 				D4DB6C3427498B72008F9D4E /* FryApp.swift in Sources */,
-				D4DB6CBF274A916F008F9D4E /* Elf.swift in Sources */,
 				D4DB6C512749AA1A008F9D4E /* ToggleView.swift in Sources */,
+				D43CD620274BF8AB00360FAD /* Owl.swift in Sources */,
 				D4DB6C4327498C17008F9D4E /* ArenaScene.swift in Sources */,
 				D4DB6C642749ABE1008F9D4E /* Overload2D.swift in Sources */,
 				D4DB6C532749AA1A008F9D4E /* SliderView.swift in Sources */,
+				D43CD623274BFBE100360FAD /* Babushka.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,11 +293,12 @@
 				D4DB6C6A2749AC67008F9D4E /* Trundle.swift in Sources */,
 				D4DB6C632749ABE1008F9D4E /* Extensions.swift in Sources */,
 				D4DB6C3527498B72008F9D4E /* FryApp.swift in Sources */,
-				D4DB6CC0274A916F008F9D4E /* Elf.swift in Sources */,
 				D4DB6C522749AA1A008F9D4E /* ToggleView.swift in Sources */,
+				D43CD621274BF8B700360FAD /* Owl.swift in Sources */,
 				D4DB6C4427498C17008F9D4E /* ArenaScene.swift in Sources */,
 				D4DB6C652749ABE1008F9D4E /* Overload2D.swift in Sources */,
 				D4DB6C542749AA1A008F9D4E /* SliderView.swift in Sources */,
+				D43CD624274BFBE100360FAD /* Babushka.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
