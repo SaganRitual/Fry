@@ -5,6 +5,8 @@ class SpritePool {
     static let linesPool = SpritePool("Markers", "line")
     static let ringsPool = SpritePool("Markers", "circle")
     static let bumpRingsPool = SpritePool("Markers", "circle-bump")
+    static let rings1024_4 = SpritePool("Markers", "NewRing1024-4")
+    static let rings256_10 = SpritePool("Markers", "NewRing256-10")
 
     let atlas: SKTextureAtlas
     var parkedDrones: [SKSpriteNode]

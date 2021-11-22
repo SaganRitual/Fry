@@ -21,7 +21,7 @@ class ArenaScene: SKScene, SKSceneDelegate, ObservableObject {
     var elves = [Elf]()
 
     override func didMove(to view: SKView) {
-        makeRings(3)
+        makeRings(10)
     }
 
     func makeRings(_ cRings: Int) {
@@ -33,9 +33,13 @@ class ArenaScene: SKScene, SKSceneDelegate, ObservableObject {
             let color = SKColor(calibratedHue: hue, saturation: 0.5, brightness: 1, alpha: 1)
             let penRingRadius = 0.95 - Double(ringIx) * 0.1
 
+//            print("makeRings penRingRadius = \(penRingRadius.asString(decimals: 4)))")
+
+            let spriteCharacter: Elf.SpriteCharacter = (penRingRadius > 0.6) ? .bigSmooth : .smallSmooth
+
             let elf = (ringIx == 0) ?
             Elf(parent: self, color: color) :
-            Elf(parent: elves.last!, penRingRadius: penRingRadius, color: color)
+            Elf(parent: elves.last!, penRingRadius: penRingRadius, color: color, spriteCharacter: spriteCharacter)
 
             elves.append(elf)
         }
@@ -67,7 +71,10 @@ class ArenaScene: SKScene, SKSceneDelegate, ObservableObject {
     }
 
     func setPenRingRadius(_ radius: Double) {
-//        trundle?.setPenRingRadius(radius)
+        if elves.count > 1 {
+            elves[1].scale = radius
+            elves[1].radius = 1
+        }
     }
 
     required init?(coder aDecoder: NSCoder) {

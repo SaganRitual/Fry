@@ -11,6 +11,7 @@ struct AppSettingsView: View {
     @State var showRings = true
 
     static let speedRange = 0.0...1.0
+    static let penRingRadiusRange = 0.0...1.0
 
     var body: some View {
         VStack {
@@ -24,14 +25,24 @@ struct AppSettingsView: View {
             .onAppear(perform: { self.setMainRingSpeed(mainRingSpeedHz) })
             .onChange(of: mainRingSpeedHz) { self.setMainRingSpeed($0) }
 
-            Text("Show/hide").font(.title).padding([.top, .bottom], 15)
+            SliderView(
+                label: "Pen ring radius", labellet: "",
+                range: AppSettingsView.penRingRadiusRange, step: 0.05,
+                decimals: 2, value: $penRingRadius
+            )
+            .modifier(SliderViewDefaults())
+            .help("First ring radius proportional to parent")
+            .onAppear(perform: { self.setPenRingRadius(penRingRadius) })
+            .onChange(of: penRingRadius) { self.setPenRingRadius($0) }
 
-            HStack {
-                ToggleView(isChecked: $showRings, label: "Rings")
-                    .frame(width: 100)
-                    .onAppear(perform: { self.showRings(showRings) })
-                    .onChange(of: showRings) { self.showRings($0) }
-            }
+//            Text("Show/hide").font(.title).padding([.top, .bottom], 15)
+//
+//            HStack {
+//                ToggleView(isChecked: $showRings, label: "Rings")
+//                    .frame(width: 100)
+//                    .onAppear(perform: { self.showRings(showRings) })
+//                    .onChange(of: showRings) { self.showRings($0) }
+//            }
         }
     }
 }
